@@ -12,7 +12,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - app_postgres_data:/var/lib/postgresql/data
 
   web:
     build: .
@@ -44,9 +44,7 @@ services:
       - media_volume:/app/media
 
 volumes:
-  postgres_data:
+  app_postgres_data:
+    external: true
   static_volume:
   media_volume:
-
-
-
