@@ -1,0 +1,24 @@
+{% extends "website/base.html" %}
+{% load i18n %}
+{% block description %}{{ article.meta_description }}{% endblock %}
+{% block keywords %}{{ article.meta_keywords }}{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+<div class="container service-wrap">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content-wrap">
+        <img class="img-fluid float-md-start me-3" src="{{ article.image.url }}" alt="{{ article.title }}">
+        <div class="pb-3">
+          <h1 class="title-simple mb-3">{{ article.title }}</h1>
+          {{ article.text|safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="service-back" href="{% url 'blog:article_list' %}">{% trans "Back to the articles" %}</a>
+</div>
+
+{% endblock %}
+

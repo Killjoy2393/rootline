@@ -1,0 +1,61 @@
+{% load static %}
+{% load i18n %}
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-3 offset-lg-1 footer__item">
+          <nav class="footer__nav footer-nav">
+            <ul class="footer-nav__main">
+              <li><a href="{% url 'about:about_page' %}" class="{% if request.resolver_match.url_name == 'about_page' %}active{% endif %}">{% trans "About us" %}</a></li>
+              <li><a href="{% url 'services:service_list' %}" class="{% if request.resolver_match.url_name == 'service_list' %}active{% endif %}">{% trans "Services" %}</a></li>
+              <li><a href="{% url 'projects:project_list' %}" class="{% if request.resolver_match.url_name == 'project_list' %}active{% endif %}">{% trans "Case Studies" %}</a></li>
+              <li><a href="{% url 'blog:article_list' %}" class="{% if request.resolver_match.url_name == 'article_list' %}active{% endif %}">{% trans "Blog" %}</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-12 col-lg-3 offset-lg-1 footer__item">
+          <div class="footer-adress">
+            <div class="footer-title">{% trans "Find Us" %}</div>
+            <div class="footer-adress__items">
+              <a href="#">
+                New York
+                4140 Parker Rd. Allentown, New
+                Mexico 31134
+              </a>
+              <a href="#">
+                New York
+                2972 Westheimer Rd. Santa Ana,
+                Illinois 85486
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 offset-lg-1 footer__item">
+          <div class="footer-contacts">
+            <div class="footer-title">{% trans "Get in Touch" %}</div>
+            <div class="footer-contacts__items">
+              <div class="contacts-item">
+                <p>{% trans "General:" %}</p>
+                <a href="tel:" type="phone" class="contacts-item__number">+1(505) 555-0125</a>
+                <a href="mailto:" class="contacts-item__email">innomerce@example.com</a>
+            </div>
+              <div class="contacts-item">
+                <p>{% trans "New business:" %}</p>
+                <a href="tel:" class="contacts-item__number">+1(808) 555-0111</a>
+                <a href="mailto:" class="contacts-item__email">innomerce_business@example.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row footer__item copywrite">
+        <div class="col-12 offset-lg-2 col-lg-4">Rootline ©. {% trans "All rights reserved." %}</div>
+        <div class="col-12 col-lg-3"><a href="#">{% trans "Privacy policy." %}</a></div>
+        <div class="col-12 col-lg-3"><a href="#">{% trans "Terms & use" %}</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
+  <script src="{% static 'js/main.js' %}" defer></script>
+ </body>
+</html>

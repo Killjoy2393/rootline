@@ -1,0 +1,12 @@
+{% extends "website/base.html" %}
+{% load i18n %}
+{% block description %}{{ about.meta_description }}{% endblock %}
+{% block keywords %}{{ about.meta_keywords }}{% endblock %}
+{% block title %}{% trans "About Us" %}{% endblock %}
+
+{% block content %}
+<div class="container about">
+    <h1 class="title-second">{{ about.title }}</h1>
+    <section class="about-text">{{ about.text|safe }}</section>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% if projects_block %}
+{% load i18n %}
+{% load easy_thumbnails_tags %}
+<section class="container latest-works">
+  <div class="row">
+    <div class="col-12 mb-5 latest-works__title d-flex justify-content-between align-items-center">
+      <h3 class="latest-works__title title-simple">{{ projects_block.title }}</h3>
+      <a href="{% url 'projects:project_list' %}" class="latest-works__link">{{ projects_block.link_text }}</a>
+    </div>
+    <div class="col-12">
+      <div class="grid-container">
+        {% for project in projects %}
+        {% with idx=forloop.counter0 %}
+        <div class="grid-item">
+          <picture>
+            {% if idx|divisibleby:7 or idx|add:'1'|divisibleby:7 %}
+              {# BIG вариант #}
+              <source media="(min-width: 1400px)" srcset="{{ project.image|thumbnail_url:'project_big_865' }}">
+              <source media="(min-width: 1200px)" srcset="{{ project.image|thumbnail_url:'project_big_745' }}">
+              <source media="(min-width: 992px)"  srcset="{{ project.image|thumbnail_url:'project_big_705' }}">
+              <source media="(min-width: 576px)"  srcset="{{ project.image|thumbnail_url:'project_big_525' }}">
+              <img src="{{ project.image|thumbnail_url:'project_big_546' }}" alt="work-image">
+            {% else %}
+              {# SMALL вариант #}
+              <source media="(min-width: 1400px)" srcset="{{ project.image|thumbnail_url:'project_small_432' }}">
+              <source media="(min-width: 1200px)" srcset="{{ project.image|thumbnail_url:'project_small_373' }}">
+              <source media="(min-width: 992px)"  srcset="{{ project.image|thumbnail_url:'project_small_352' }}">
+              <source media="(min-width: 576px)"  srcset="{{ project.image|thumbnail_url:'project_small_263' }}">
+              <img src="{{ project.image|thumbnail_url:'project_small_273' }}" alt="work-image">
+            {% endif %}
+          </picture>
+      
+          <div class="grid-item__wrap">
+            <h4>{{ project.title }}</h4>
+            <ul>
+              {% for service in project.services.all %}
+              <li><a href="{% url 'services:service_detail' service.slug %}" class="service-link">{{ service.short_title }}</a></li>
+              {% endfor %}
+            </ul>
+            <p>{{ project.short_description }}</p>
+            <a href="{% url 'projects:project_detail' project.slug %}">{% trans "More" %}</a>
+          </div>
+        </div>
+        {% endwith %}
+      {% endfor %}
+      </div>      
+    </div>
+  </div>
+</section>
+{% endif %}

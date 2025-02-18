@@ -1,0 +1,42 @@
+{% load html_filters %}
+{% if services %}
+{% load i18n %}
+<section class="container-fluid grow">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="grow__title d-flex justify-content-between align-items-center mb-5">
+          <h3 class="grow-title title-simple">
+            {{ services_block.title }}
+          </h3>
+          <a href="{% url 'services:service_list' %}" class="grow__link">{{ services_block.link_text }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      {% for service in services %}
+      <div class="col-md-4">
+        <div class="grow-item d-flex flex-column">
+          <div class="grow-item__title title-with-line-second">
+            {{ service.title }}
+          </div>
+          <div class="grow-item__text">
+            {{ service.description|limit_html_tags|safe }}
+          </div>
+          <a href=
+            "{% url 'services:service_detail' service.slug %}" 
+            class="grow-item__link"
+            aria-label="{% trans 'Read more about' %} {{ service.title }}" 
+            title="{% trans 'Read more about' %} {{ service.title }}"
+            >
+            {% trans "More" %}
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

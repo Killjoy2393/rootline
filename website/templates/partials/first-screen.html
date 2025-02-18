@@ -1,0 +1,38 @@
+{% load easy_thumbnails_tags %}
+
+{% if hero_section %}
+  <section class="container-fluid first-screen">
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        srcset="{{ hero_section.image|thumbnail_url:'480' }}"
+      >
+      <source
+        media="(max-width: 1280px)"
+        srcset="{{ hero_section.image|thumbnail_url:'768' }}"
+      >
+      <source
+        media="(max-width: 1400px)"
+        srcset="{{ hero_section.image|thumbnail_url:'1280' }}"
+      >
+      <!-- Фолбэк, если ширина экрана больше 1280 или браузер не поддерживает <picture>: -->
+      <img
+        src="{{ hero_section.image|thumbnail_url:'1920' }}"
+        fetchpriority="high"
+        alt="Hero image"
+        class="background-image"
+      >
+    </picture>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 first-screen__wrap">
+          <h3 class="first-screen__title">
+            {{ hero_section.title|safe }}
+          </h3>
+          <a href="#contact-form" class="main-btn">{{ hero_section.button_text }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+

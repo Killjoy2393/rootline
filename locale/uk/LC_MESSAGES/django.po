@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-05 13:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: about/models.py:5 blog/models.py:7 services/models.py:6
+msgid "Title"
+msgstr "Заголовок"
+
+#: about/models.py:6 blog/models.py:8
+#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2441
+msgid "Text"
+msgstr "Текст"
+
+#: about/models.py:9 about/models.py:10
+msgid "Про нас"
+msgstr "About Us"
+
+#: about/templates/about/about_page.html:3
+msgid "About Us"
+msgstr "Про нас"
+
+#: blog/models.py:9 services/models.py:9
+#: venv/lib/python3.12/site-packages/django/db/models/fields/files.py:420
+msgid "Image"
+msgstr "Зображення"
+
+#: blog/models.py:10 projects/models.py:10 services/models.py:10
+msgid "Slug"
+msgstr "Посилання"
+
+#: blog/models.py:11 services/models.py:11 website/models.py:42
+msgid "Created At"
+msgstr "Дата створення"
+
+#: blog/models.py:12 services/models.py:12 website/models.py:43
+msgid "Updated At"
+msgstr "Дата оновлення"
+
+#: blog/models.py:13
+msgid "Published At"
+msgstr "Дата публікації"
+
+#: blog/models.py:16
+msgid "Стаття"
+msgstr "Article"
+
+#: blog/models.py:17
+msgid "Статті"
+msgstr "Articles"
+
+#: blog/templates/blog/article_detail.html:19
+msgid "Back to the articles"
+msgstr "Назад до блогу"
+
+#: blog/templates/blog/article_list.html:3
+#: blog/templates/blog/article_list.html:7
+msgid "Our Blog"
+msgstr "Наш блог"
+
+#: blog/templates/blog/article_list.html:17
+#: website/templates/partials/articles.html:25
+msgid "Read more"
+msgstr "Детальніше"
+
+#: projects/models.py:6
+msgid "Назва"
+msgstr "Title"
+
+#: projects/models.py:7
+msgid "Короткий опис"
+msgstr "Short Description"
+
+#: projects/models.py:8
+msgid "Повний опис"
+msgstr "Full Description"
+
+#: projects/models.py:9
+msgid "Зображення"
+msgstr "Image"
+
+#: projects/models.py:11 services/models.py:16
+msgid "Послуги"
+msgstr "Services"
+
+#: projects/models.py:14
+msgid "Проект"
+msgstr "Project"
+
+#: projects/models.py:15
+msgid "Проекти"
+msgstr "Projects"
+
+#: projects/templates/projects/project_detail.html:13
+msgid "Services Provided"
+msgstr "Надані послуги"
+
+#: projects/templates/projects/project_list.html:3
+msgid "Projects"
+msgstr "Проекти"
+
+#: projects/templates/projects/project_list.html:6
+msgid "Our works"
+msgstr "Наші роботи"
+
+#: projects/templates/projects/project_list.html:21
+#: services/templates/services/service_list.html:17
+#: website/templates/partials/projects.html:22
+#: website/templates/partials/services.html:27
+msgid "More"
+msgstr "Детальніше"
+
+#: reviews/models.py:5 website/models.py:6
+msgid "Ім'я"
+msgstr "Name"
+
+#: reviews/models.py:6
+msgid "Посада"
+msgstr "Position"
+
+#: reviews/models.py:7
+msgid "Текст відгуку"
+msgstr "Review Text"
+
+#: reviews/models.py:8
+msgid "Фото"
+msgstr "Photo"
+
+#: reviews/models.py:10
+msgid "Дата створення"
+msgstr "Created At"
+
+#: reviews/models.py:13
+msgid "Відгук"
+msgstr "Review"
+
+#: reviews/models.py:14
+msgid "Відгуки"
+msgstr "Reviews"
+
+#: services/models.py:7
+msgid "Short title"
+msgstr "Короткий заголовок"
+
+#: services/models.py:8
+#, fuzzy
+#| msgid "Task Description"
+msgid "Description"
+msgstr "Опис"
+
+#: services/models.py:15
+msgid "Послуга"
+msgstr "Service"
+
+#: services/templates/services/service_detail.html:16
+msgid "Back to the services"
+msgstr "Назад до послуг"
+
+#: services/templates/services/service_list.html:3
+#: services/templates/services/service_list.html:7
+msgid "Our services"
+msgstr "Наші послуги"
+
+#: website/models.py:7
+msgid "E-mail"
+msgstr "Електронна пошта"
+
+#: website/models.py:8
+msgid "Телефон"
+msgstr "Phone"
+
+#: website/models.py:9
+msgid "Повідомлення"
+msgstr "Message"
+
+#: website/models.py:10
+msgid "Дата відправлення"
+msgstr "Sent Date"
+
+#: website/models.py:13 website/models.py:14
+msgid "Форма зворотного зв'язку"
+msgstr "Contact Form"
+
+#: website/models.py:36
+msgid "Заголовок"
+msgstr "Title"
+
+#: website/models.py:37 website/models.py:84
+msgid "Опис"
+msgstr "Description"
+
+#: website/models.py:38
+msgid "Фіналочка"
+msgstr "Final Block"
+
+#: website/models.py:39
+msgid "Stats"
+msgstr "Статистика"
+
+#: website/models.py:40 website/models.py:56 website/models.py:70
+#: website/models.py:98
+msgid "Текст кнопки"
+msgstr "Button Text"
+
+#: website/models.py:55
+msgid "Заголовок блоку з послугами"
+msgstr "Services Block Title"
+
+#: website/models.py:69
+msgid "Заголовок блоку з проектами"
+msgstr "Projects Block Title"
+
+#: website/models.py:83 website/models.py:97
+msgid "Заголовок блоку з відгуками"
+msgstr "Reviews Block Title"
+
+#: website/templates/partials/footer.html:9
+#: website/templates/partials/header.html:18
+#: website/templates/partials/header.html:40
+msgid "About us"
+msgstr "Про нас"
+
+#: website/templates/partials/footer.html:10
+#: website/templates/partials/header.html:19
+#: website/templates/partials/header.html:41
+msgid "Services"
+msgstr "Послуги"
+
+#: website/templates/partials/footer.html:11
+#: website/templates/partials/header.html:20
+#: website/templates/partials/header.html:42
+msgid "Case Studies"
+msgstr "Портфоліо"
+
+#: website/templates/partials/footer.html:12
+#: website/templates/partials/header.html:21
+#: website/templates/partials/header.html:43
+msgid "Blog"
+msgstr "Блог"
+
+#: website/templates/partials/footer.html:18
+msgid "Find Us"
+msgstr "Знайти нас"
+
+#: website/templates/partials/footer.html:35
+msgid "Get in Touch"
+msgstr "Зв'язатись з нами"
+
+#: website/templates/partials/footer.html:38
+msgid "General:"
+msgstr "Поточні:"
+
+#: website/templates/partials/footer.html:43
+msgid "New business:"
+msgstr "Нові проєкти:"
+
+#: website/templates/partials/footer.html:52
+msgid "All rights reserved."
+msgstr "Усі права захищені"
+
+#: website/templates/partials/footer.html:53
+msgid "Privacy policy."
+msgstr "Політика приватності"
+
+#: website/templates/partials/footer.html:54
+msgid "Terms & use"
+msgstr "Умови використання"
+
+#: website/templates/partials/header.html:17
+#: website/templates/partials/header.html:39
+msgid "Home"
+msgstr "Головна"
+
+#: website/templates/partials/header.html:22
+#: website/templates/partials/header.html:44
+msgid "Contacts"
+msgstr "Контакти"
+
+#: website/templates/website/base.html:43
+msgid "Contact and"
+msgstr "Зв'яжіться з нами та"
+
+#: website/templates/website/base.html:45
+msgid "discuss your tasks"
+msgstr "обговоріть ваше питання"
+
+#: website/templates/website/base.html:47
+msgid "We are here to help"
+msgstr "Ми тут щоб допомогти"
+
+#: website/templates/website/base.html:53
+msgid "Task Description"
+msgstr "Завдання"
+
+#: website/templates/website/base.html:58
+msgid "Name"
+msgstr "Ім'я"
+
+#: website/templates/website/base.html:68
+msgid "Phone"
+msgstr "Телефон"
+
+#: website/templates/website/base.html:71
+msgid "Send"
+msgstr "Відправити"
+
+#: website/views.py:18
+msgid "Ваше повідомлення успішно відправлено! Незабаром ми з вами зв'яжемось."
+msgstr "Your message has been successfully sent! We will contact you soon."
+
+#: website/views.py:20
+msgid "Помилка при відправці форми. Перевірте введені дані."
+msgstr "An error occurred while submitting the form. Please check the entered data."

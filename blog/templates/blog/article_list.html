@@ -1,0 +1,52 @@
+{% extends "website/base.html" %}
+{% load i18n %}
+{% block description %}{{ meta.meta_description }}{% endblock %}
+{% block keywords %}{{ meta.meta_keywords }}{% endblock %}
+{% block title %}{% trans "Our Blog" %}{% endblock %}
+{% load easy_thumbnails_tags %}
+{% block content %}
+<div class="container">
+    <h1 class="title-second">{% trans "Our Blog" %}</h1>
+    <div class="services row">
+        {% for article in articles %}
+            <article class="service-card col-12 col-md-6 col-lg-4">
+                <div class="service__img">
+                    <picture>
+                        <!-- Большие экраны (min-width: 1400px) -->
+                        <source
+                          media="(min-width: 1400px)"
+                          srcset="{{ article.image|thumbnail_url:'width420' }}"
+                        >
+                        <!-- 1200..1399px -->
+                        <source
+                          media="(min-width: 1200px)"
+                          srcset="{{ article.image|thumbnail_url:'width360' }}"
+                        >
+                        <!-- 992..1199px -->
+                        <source
+                          media="(min-width: 992px)"
+                          srcset="{{ article.image|thumbnail_url:'width458' }}"
+                        >
+                        <!-- 768..991px -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="{{ article.image|thumbnail_url:'width690' }}"
+                        >
+                        <!-- До 767px: fallback -->
+                        <img
+                          src="{{ article.image|thumbnail_url:'width510' }}"
+                          alt="Article Image"
+                          class="background-image"
+                        >
+                    </picture>
+                </div>
+                <div class="service-card__text">
+                    <h2><a href="{% url 'blog:article_detail' article.slug %}">{{ article.title }}</a></h2>
+                    <div>{{ article.text|truncatewords:30|safe }}</div>
+                    <a class="services-more" href="{% url 'blog:article_detail' article.slug %}">{% trans "Read more" %}</a>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

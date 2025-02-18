@@ -1,0 +1,24 @@
+{% if info_block %}
+{% load dictionary_filters %}
+<section class="container rootline">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h3 class="rottline__title title-with-line">{{ info_block.title|safe }}</h3>
+      <p class="rootline__txt">
+        {{ info_block.caption }}
+      <span>{{ info_block.span }}</span>
+      </p>
+    </div>  
+    <div class="col-12 col-md-5 offset-md-1 d-flex flex-column justify-content-between align-items-start">
+      <div class="rootline-data rootline__data d-flex">
+        {% for stat in info_block.stats %}
+          <div class="rootline-data__item">
+            {{ stat.value|get_dict_value:request.LANGUAGE_CODE|safe }}
+          </div>
+        {% endfor %}
+      </div>
+      <a href="#contact-form" class="main-btn btn-with-margin-top">{{ info_block.button_text }}</a>
+    </div>
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,24 @@
+{% extends "website/base.html" %}
+{% block description %}{{ project.meta_description }}{% endblock %}
+{% block keywords %}{{ project.meta_keywords }}{% endblock %}
+{% block title %} {{ project.title }} {% endblock %}
+{% block content %}
+{% load i18n %}
+<h1 class="title-second">{{ project.title }}</h1>
+<h2 class="project__second-title">{{ project.short_description }}</h2>
+<div class="container service__wrap">
+    <div class="row">
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid col-12 col-lg-6">
+        <div class="service__text col-12 col-lg-6">
+            <h3>{{ project.short_description }}</h3>
+            <p>{{ project.full_description }}</p>
+            <h3>{% trans "Services Provided" %}</h3>
+            <ul>
+                {% for service in project.services.all %}
+                    <li><a href="{% url 'services:service_detail' service.slug %}">{{ service.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

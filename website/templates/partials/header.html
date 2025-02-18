@@ -1,0 +1,60 @@
+{% load static %}
+{% load i18n %}
+{% load custom_filters %}
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 header__wrap">
+        <a href="{% url 'home' %}">        
+          <div class="header__logo">
+            <img src="{% static 'images/logo.png' %}" loading="lazy" alt="Logo">
+            <h1 class="header__title">Rootline</h1>
+          </div>
+        </a>
+
+        <nav class="header-nav">
+          <ul class="header__nav">
+            <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">{% trans "Home" %}</a></li>
+            <li><a href="{% url 'about:about_page' %}" class="{% if request.resolver_match.url_name == 'about_page' %}active{% endif %}">{% trans "About us" %}</a></li>
+            <li><a href="{% url 'services:service_list' %}" class="{% if request.resolver_match.url_name == 'service_list' %}active{% endif %}">{% trans "Services" %}</a></li>
+            <li><a href="{% url 'projects:project_list' %}" class="{% if request.resolver_match.url_name == 'project_list' %}active{% endif %}">{% trans "Case Studies" %}</a></li>
+            <li><a href="{% url 'blog:article_list' %}" class="{% if request.resolver_match.url_name == 'article_list' %}active{% endif %}">{% trans "Blog" %}</a></li>
+            <li><a href="#">{% trans "Contacts" %}</a></li>
+            <li> 
+              <div class="lang-nav">
+                <a href="{% url 'set_language' %}?language=uk&next={{ request.path|replace:"/en/,/uk/" }}"
+                  class="{% if request.LANGUAGE_CODE == 'uk' %}active{% endif %}">Укр</a> /
+                <a href="{% url 'set_language' %}?language=en&next={{ request.path|replace:"/uk/,/en/" }}"
+                  class="{% if request.LANGUAGE_CODE == 'en' %}active{% endif %}">Eng</a>                
+              </div>
+            </li>
+          </ul>
+          <div class="burger-menu">
+            <div class="burger-menu__icon" id="burgerIcon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <ul class="burger-menu__nav" id="burgerNav">
+              <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">{% trans "Home" %}</a></li>
+              <li><a href="{% url 'about:about_page' %}" class="{% if request.resolver_match.url_name == 'about_page' %}active{% endif %}">{% trans "About us" %}</a></li>
+              <li><a href="{% url 'services:service_list' %}" class="{% if request.resolver_match.url_name == 'service_list' %}active{% endif %}">{% trans "Services" %}</a></li>
+              <li><a href="{% url 'projects:project_list' %}" class="{% if request.resolver_match.url_name == 'project_list' %}active{% endif %}">{% trans "Case Studies" %}</a></li>
+              <li><a href="{% url 'blog:article_list' %}" class="{% if request.resolver_match.url_name == 'article_list' %}active{% endif %}">{% trans "Blog" %}</a></li>
+              <li><a href="#">{% trans "Contacts" %}</a></li>
+              <li> 
+                <div class="lang-nav">
+                  <a href="{% url 'set_language' %}?language=uk&next={{ request.path|replace:"/en/,/uk/" }}"
+                    class="{% if request.LANGUAGE_CODE == 'uk' %}active{% endif %}">Укр</a> /
+                  <a href="{% url 'set_language' %}?language=en&next={{ request.path|replace:"/uk/,/en/" }}"
+                    class="{% if request.LANGUAGE_CODE == 'en' %}active{% endif %}">Eng</a>                
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+

@@ -1,0 +1,51 @@
+{% extends "website/base.html" %}
+{% load i18n %}
+{% block description %}{{ meta.meta_description }}{% endblock %}
+{% block keywords %}{{ meta.meta_keywords }}{% endblock %}
+{% block title %}{% trans "Our projects" %}{% endblock %}
+{% block content %}
+{% load easy_thumbnails_tags %}
+  <div class="container latest-works">
+      <h1 class="title-second">{% trans "Our works" %}</h1>
+      <div class="row">
+        <div class="col-12">
+          <div class="grid-container">
+            {% for project in projects %}
+            {% with idx=forloop.counter0 %}
+            <article class="grid-item">
+              <picture>
+                {% if idx|divisibleby:7 or idx|add:'1'|divisibleby:7 %}
+                  {# BIG вариант #}
+                  <source media="(min-width: 1400px)" srcset="{{ project.image|thumbnail_url:'project_big_865' }}">
+                  <source media="(min-width: 1200px)" srcset="{{ project.image|thumbnail_url:'project_big_745' }}">
+                  <source media="(min-width: 992px)"  srcset="{{ project.image|thumbnail_url:'project_big_705' }}">
+                  <source media="(min-width: 576px)"  srcset="{{ project.image|thumbnail_url:'project_big_525' }}">
+                  <img src="{{ project.image|thumbnail_url:'project_big_546' }}" alt="work-image">
+                {% else %}
+                  {# SMALL вариант #}
+                  <source media="(min-width: 1400px)" srcset="{{ project.image|thumbnail_url:'project_small_432' }}">
+                  <source media="(min-width: 1200px)" srcset="{{ project.image|thumbnail_url:'project_small_373' }}">
+                  <source media="(min-width: 992px)"  srcset="{{ project.image|thumbnail_url:'project_small_352' }}">
+                  <source media="(min-width: 576px)"  srcset="{{ project.image|thumbnail_url:'project_small_263' }}">
+                  <img src="{{ project.image|thumbnail_url:'project_small_273' }}" alt="work-image">
+                {% endif %}
+              </picture>  
+              <div class="grid-item__wrap">
+                <h4>{{ project.title }}</h4>
+                <ul>
+                  {% for service in project.services.all %}
+                  <li><a href="{% url 'services:service_detail' service.slug %}" class="service-link">{{ service.short_title }}</a></li>
+                  {% endfor %}
+                </ul>
+                <p>{{ project.short_description }}</p>
+                <a href="{% url 'projects:project_detail' project.slug %}">{% trans "More" %}</a>
+              </div>
+            </article>
+            {% endwith %}
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+  </div>
+{% endblock %}
+

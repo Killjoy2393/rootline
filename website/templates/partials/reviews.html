@@ -1,0 +1,40 @@
+{% if reviews_block %}
+<section class="container reviews">
+  <div class="row">
+    <div class="col-12 col-md-5 mb-4 offset-md-1">
+      <div class="reviews__quote">“</div>
+      <div class="reviews__title title-with-line">{{ reviews_block.title }}</div>
+      <div class="reviews__caption">{{ reviews_block.caption }}</div>
+    </div>
+    <div class="col-12 col-md-5">
+      <div id="reviewCarousel" class="carousel reviews__carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <!-- Индикаторы -->
+        <div class="carousel-indicators">
+          {% for review in reviews %}
+            <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
+                    {% if forloop.first %}class="active" aria-current="true"{% endif %}
+                    aria-label="Slide {{ forloop.counter }}"></button>
+          {% endfor %}
+        </div>
+      
+        <div class="carousel-inner">
+          {% for review in reviews %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <div class="review">
+                <header class="review-header">
+                  <img src="{{ review.photo.url }}" alt="Profile Photo" class="review-photo">
+                  <div>
+                    <h4>{{ review.name }}</h4>
+                    <p>{{ review.position }}</p>
+                  </div>
+                </header>
+                <blockquote>{{ review.text }}</blockquote>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

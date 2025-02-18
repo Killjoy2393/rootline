@@ -1,0 +1,52 @@
+services:
+
+  db:
+    image: postgres:15
+    container_name: rootline_postgres
+    restart: always
+    env_file: .env  # ← Используем .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: rootline_django
+    restart: always
+    env_file: .env  # ← Используем .env
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - static_volume:/app/static 
+      - media_volume:/app/media  # 🔥 Поддержка media-файлов
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+
+  nginx:
+    image: nginx:latest
+    container_name: rootline_nginx
+    restart: always
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - static_volume:/app/static
+      - media_volume:/app/media
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+
+
+

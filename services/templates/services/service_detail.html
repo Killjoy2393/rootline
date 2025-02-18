@@ -1,0 +1,23 @@
+{% extends "website/base.html" %}
+
+
+{% block description %}{{ service.meta_description }}{% endblock %}
+{% block keywords %}{{ service.meta_keywords }}{% endblock %}
+{% block title %} {{ service.title }} {% endblock %}
+
+{% load i18n %}
+
+{% block content %}
+
+<div class="container service-wrap">
+  <div class="row service">
+      <img class="col-12 col-lg-6 service-img" src="{{ service.image.url }}" alt="{{ service.title }}">
+      <div class="col-12 col-lg-6 grow-wrap">
+        <h1 class="title-with-line-second col-12">{{ service.title }}</h1>
+        <div class="service__description">{{ service.description|safe }}</div>
+      </div>
+    <a class="service-back" href="{% url 'services:service_list' %}">{% trans "Back to the services" %}</a>
+  </div>
+</div>
+
+{% endblock %}
